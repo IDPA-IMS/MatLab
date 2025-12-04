@@ -8,7 +8,7 @@ PiccoWeight = 20;     % [g]
 OtherComponentsWeight = 30; % [g]
 % Motor
 MaxRpm = 19900; % [rpm]
-MaxTorque = ; % [N*m]
+MaxTorque = 1.5; % [N*m] exampel value
 PropDiameter = 250; % [mm]
 HubDiameter = 10; % [mm]
 % Air
@@ -31,6 +31,13 @@ VelocityAirMaxThrust = sqrt(WeigthForceDrone * MaxThrustToWeightRation / (4 * 2 
 
 % angle of incidenc has to be calculated for hover but it has to reach the
 % thrust figueres @ max rpm
+BladeSizeGiven = linspace(HubDiameter / 2, BladeSize + (HubDiameter / 2), 1000);
+AngleOfIncidence = zeros(length(BladeSizeGiven));
 
-% Torque is Weight / (4 * sin(angle of incidence @
-% SingelPointOfAttackBlade) * SingelPointOfAttackBlade
+for i = 1:length(BladeSizeGiven)
+    AngleOfIncidence(i) = atand(VelocityAirHover / (BladeSizeGiven * ));
+
+
+% MaxTorque = WeigthForceDrone * MaxThrustToWeightRation * SingelPointOfAttackBlade / (4 * sin(AngleOfIncidenceAtSingelPoint));
+% This equation is rearranged
+AngleOfIncidenceAtSingelPoint = sinh(WeigthForceDrone * MaxThrustToWeightRation * SingelPointOfAttackBlade / (4 * MaxTorque)); % [rad] % This is the max angle to meet thrust @ rpm
