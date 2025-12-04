@@ -4,7 +4,7 @@ BatteryWeight = 150; % [g]
 MotorWeight = 34;       % [g] per motor
 FlightControllerWeight = 5; % [g]
 EscWeight = 19;         % [g]
-PiccoWeight = 20;     % [g]
+PiccoWeight = 3;     % [g]
 OtherComponentsWeight = 30; % [g]
 % Motor
 MaxRpm = 19900; % [rpm]
